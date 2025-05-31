@@ -35,7 +35,7 @@
 //         >
 //           <Route index element={<Navigate to="dashboard" replace />} />
 //           <Route path="dashboard" element={<DashboardPage />} />
-          
+
 //           {/* Admin only */}
 //           <Route
 //             path="drivers"
@@ -95,27 +95,28 @@
 
 // export default App
 
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-
-import DashboardLayout from './layouts/DashboardLayout'
-import LoginPage from './pages/LoginPage'
-import DashboardPage from './pages/DashboardPage'
-import DeliveriesPage from './pages/DeliveriesPage'
-import DriversPage from './pages/DriversPage'
-import AnalyticsPage from './pages/AnalyticsPage'
-import AutoAssignPage from './pages/AutoAssignPage'
-import MyDeliveriesPage from './pages/MyDeliveriesPage'
-import ProfilePage from './pages/ProfilePage'
+import DashboardLayout from "./layouts/DashboardLayout";
+import LoginPage from "./pages/LoginPage";
+import DashboardPage from "./pages/DashboardPage";
+import DeliveriesPage from "./pages/DeliveriesPage";
+import DriversPage from "./pages/DriversPage";
+import AnalyticsPage from "./pages/AnalyticsPage";
+import AutoAssignPage from "./pages/AutoAssignPage";
+import MyDeliveriesPage from "./pages/MyDeliveriesPage";
+import ProfilePage from "./pages/ProfilePage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
-  const user = { name: 'John Doe', role: 'admin' }
+  const user = { name: "John Doe", role: "admin" };
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+         <Route path="/register" element={<RegisterPage />} />
 
-   <Route path="/" element={<DashboardLayout user={user} />}>
+        <Route path="/" element={<DashboardLayout user={user} />}>
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<DashboardPage />} />
           <Route path="drivers" element={<DriversPage />} />
@@ -129,7 +130,7 @@ function App() {
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

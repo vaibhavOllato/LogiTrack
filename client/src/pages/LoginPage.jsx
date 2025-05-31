@@ -1,98 +1,6 @@
-// import React, { useState, useContext } from 'react'
-// import { AuthContext } from '../context/AuthContext'
-// import { useNavigate } from 'react-router-dom'
-// import { FaTruck } from 'react-icons/fa'
-
-// const LoginPage = () => {
-//   const { login } = useContext(AuthContext)
-//   const navigate = useNavigate()
-//   const [email, setEmail] = useState('')
-//   const [password, setPassword] = useState('')
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault()
-
-//     if (email === 'admin@example.com' && password === 'admin') {
-//       login({ name: 'Admin User', email, role: 'admin', token: 'fake-jwt-token' })
-//       navigate('/')
-//     } else if (email === 'driver@example.com' && password === 'driver') {
-//       login({ name: 'Driver Joe', email, role: 'driver', token: 'fake-jwt-token' })
-//       navigate('/')
-//     } else if (email === 'dispatcher@example.com' && password === 'dispatcher') {
-//       login({ name: 'Dispatcher Ann', email, role: 'dispatcher', token: 'fake-jwt-token' })
-//       navigate('/')
-//     } else {
-//       alert('Invalid credentials')
-//     }
-//   }
-
-//   return (
-//     <div className="min-h-screen bg-slate-50 flex items-center justify-center px-2">
-//       <div className="bg-white border border-slate-300 rounded-xl shadow-xl max-w-sm w-full p-6">
-//         <div className="flex flex-col items-center mb-6">
-//           <div className="bg-teal-600 text-white p-3 rounded-full shadow-md mb-3">
-//             <FaTruck size={32} />
-//           </div>
-//           <h2 className="text-2xl font-bold text-slate-900">LogiTrack AI</h2>
-//           <p className="text-teal-600 text-sm font-medium">Smart Logistics Login</p>
-//         </div>
-
-//         <form onSubmit={handleSubmit} className="space-y-4 text-sm">
-//           <div>
-//             <label htmlFor="email" className="block text-slate-700 font-medium mb-1">
-//               Email Address
-//             </label>
-//             <input
-//               id="email"
-//               type="email"
-//               placeholder="you@example.com"
-//               className="w-full border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 text-slate-900"
-//               value={email}
-//               onChange={e => setEmail(e.target.value)}
-//               required
-//               autoComplete="email"
-//             />
-//           </div>
-
-//           <div>
-//             <label htmlFor="password" className="block text-slate-700 font-medium mb-1">
-//               Password
-//             </label>
-//             <input
-//               id="password"
-//               type="password"
-//               placeholder="••••••••"
-//               className="w-full border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 text-slate-900"
-//               value={password}
-//               onChange={e => setPassword(e.target.value)}
-//               required
-//               autoComplete="current-password"
-//             />
-//           </div>
-
-//           <button
-//             type="submit"
-//             className="w-full bg-teal-600 text-white py-2.5 rounded-md font-semibold hover:bg-teal-700 transition shadow-sm"
-//           >
-//             Sign In
-//           </button>
-//         </form>
-
-//         <p className="mt-5 text-center text-slate-500 text-xs">
-//           &copy; 2025 LogiTrack AI. All rights reserved.
-//         </p>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default LoginPage
-
-
-
 import React, { useState, useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { FaTruck } from 'react-icons/fa'
 
 const LoginPage = () => {
@@ -180,6 +88,13 @@ const LoginPage = () => {
 
           <p className="mt-5 text-center text-slate-500 text-xs">
             &copy; 2025 LogiTrack AI. All rights reserved.
+          </p>
+
+          <p className="mt-3 text-center text-sm text-slate-700">
+            Don't have an account?{' '}
+            <Link to="/register" className="text-teal-600 font-semibold hover:underline">
+              Register here
+            </Link>
           </p>
         </div>
       </div>
